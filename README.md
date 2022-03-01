@@ -3,7 +3,7 @@
 > This repository only includes sample codes for Web Application/Website integration with CamDigiKey, it is not a sample project.
 
 
-## Currently, the client library of CamDigiKey is available to be implemented in Java and Node.js. To use CamDigiKey client library in your project please follow the steps below:
+## Currently, the client library of CamDigiKey is available to be implemented in Java. To use CamDigiKey client library in your project please follow the steps below:
 
 ## 1. CamDigiKey Java Library
 
