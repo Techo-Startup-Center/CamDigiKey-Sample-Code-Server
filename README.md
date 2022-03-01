@@ -183,52 +183,6 @@ camdigikey.client-trust-store-file-password = <trust_password>
     ```
 
 ---
-## 2. CamDigikey Node.js Library
-
-1. Installation:
-    1. In terminal, go to node_modules directory
-    2. Run: git clone <url_to_client_lib_repository> camdigikey-client
-    3. Run: cd camdigikey-client && yarn install
-
-2. Usage:
-    1. Import Library CamDigikey NodeJs
-    ```javascript
-    const { CamDigiKey } = require('camdigikey-client')
-    const { client } = CamDigiKey
-    // or 
-    import { CamDigiKey } from 'camdigikey-client'
-    const { client } = CamDigiKey
-    ```
-
-    2. Configure client information
-
-    ```javascript
-    CamDigiKey.configure({
-        clientId: process.env.CLIENT_ID,
-        hmacSecretKey: process.env.HMAC_SECRET_KEY,
-        ivParam: process.env.IV_PARAM,
-        secretKey: process.env.SECRET_KEY,
-        domain: process.env.DOMAIN,
-        appId: process.env.APP_ID
-    });
-    ```
-
-    3. Example using the get LoginToken
-
-    ```javascript
-    const res = await client.getLoginToken()
-    console.log(res)
-    ```
-
-    The client node library provides functions:
-    1. `getOrganizationAccessToken(): Promise<Object>`
-    2. `getLoginToken(): Promise<Object>`
-    3. `getUserAccessToken(authCode: string): Promise<Object>`
-    4. `refreshUserAccessToken(accessToken: string): Promise<Object>`
-    5.	`getUserInfo(accessToken: string): Promise<Object>`
-    6.	`getAccessTokenStatus(accessToken: string): Promise<Object>`
-    7.	`getOrganizationAccessTokenStatus(accessToken: string): Promise<Object>`
-    8.	`logoutAccessToken(accessToken: string): Promise<Object>` 
     
 # CamDigiKey Client App
 
