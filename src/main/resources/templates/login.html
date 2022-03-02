@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Log In | CamDigiKey</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Fontawesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-no-repeat bg-cover bg-center">
+    <!-- Tailwind CSS v2.0+ -->
+    <div class="bg-green-600">
+        <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between flex-wrap">
+                <div class="w-0 flex-1 flex items-center">
+        <span class="flex p-2 rounded-lg" style="background: #2e5ae1">
+          <!-- Heroicon name: outline/speakerphone -->
+          <svg aria-hidden="true" class="h-6 w-6 text-white" fill="none" stroke="currentColor"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+          </svg>
+        </span>
+                <p class="ml-3 font-medium text-white truncate">
+                  <span class="md:hidden">
+                    Sample Client1 Application (DEMO)
+                  </span>
+                    <span class="hidden md:inline">
+                        Big news! We're excited to announce an Sample Client1 Application (DEMO) is using CamDigiKey Authentication Service
+                  </span>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="max-w-7xl mx-auto py-5 px-3 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-black mr-6">
+            <h1 class="text-2xl font-bold">Sample Client1 Application (DEMO)</h1>
+        </div>
+
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="text-sm lg:flex-grow">
+
+            </div>
+        </div>
+    </nav>
+    <!-- component -->
+
+    <div class="flex justify-center">
+        <div class="bg-white flex justify-center items-center px-3">
+            <div>
+                <div class="bg-white flex space-x-2 p-5 rounded-full justify-center items-center" id="loading"
+                     style="display: none;">
+                    <div class="bg-blue-600 p-2  w-3 h-3 rounded-full animate-bounce blue-circle"
+                         style="background: #2e5ae1"></div>
+                    <div class="bg-green-600 p-2 w-3 h-3 rounded-full animate-bounce green-circle"></div>
+                    <div class="bg-red-600 p-2  w-3 h-3 rounded-full animate-bounce red-circle"></div>
+                </div>
+                <form action="/loginToken" method="POST">
+                    <div class="text-center mt-2">
+                        <h1 class="text-2xl font-bold">Login with CamDigiKey account</h1>
+                    </div>
+                    <div class="w-full flex justify-center w-auto">
+                        <button class="w-full mt-4 mb-3 bg-blue-700 hover:bg-blue-600 text-white py-2 rounded-md transition duration-100">
+                            <div class="flex items-center justify-center flex-shrink-0 text-black mr-6 px-2">
+                                <svg height="47" viewBox="0 0 199 47" width="199" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g data-name="Group 202" id="Group_202" transform="translate(-25 -94)">
+                                        <image data-name="CamDigiKeyIpadProApp@2x" height="47" id="CamDigiKeyIpadProApp_2x"
+                                               transform="translate(25 94)"
+                                               width="47"
+                                               xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKcAAACnCAYAAAB0FkzsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF4mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDggNzkuMTY0MDM2LCAyMDE5LzA4LzEzLTAxOjA2OjU3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMCAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTAzLTA2VDEwOjUyKzA3OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIwLTAzLTA2VDEwOjUyKzA3OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0wMy0wNlQxMDo1MiswNzowMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpjYmU5YWU5NS1jYjZlLWVhNDktYjk3ZS05OTMyZThhYzY3YWEiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo2NzA2MTcwYy02NTJjLWI1NGQtOWQ0Zi0xM2I0OTJlZGQ1ODkiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3YTkyOWM5ZS05ZjI4LTAzNGQtOTg3Zi01NTdlODc5OWExOTkiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjdhOTI5YzllLTlmMjgtMDM0ZC05ODdmLTU1N2U4Nzk5YTE5OSIgc3RFdnQ6d2hlbj0iMjAyMC0wMy0wNlQxMDo1MiswNzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpjYmU5YWU5NS1jYjZlLWVhNDktYjk3ZS05OTMyZThhYzY3YWEiIHN0RXZ0OndoZW49IjIwMjAtMDMtMDZUMTA6NTIrMDc6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMS4wIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz50RDzIAAAV/UlEQVR4nO2deXhUVZqH31qTSmVPIIStUJEgSgGK7IjS0LQiyjiKTbAR7GFGbFSwXVDUZnrAdtRW+lHaYexWcAnd2JsItAutNiCogAmFiqwStgBJyJ6qpCpV80dVGMBsde6tW3VT530e/iCVe+9X9/5y7jnfdgxogDO/OBMYAwwC+gF5QDcgNfTPoIUdkrAIANWhfyeBvcA+YBewxVXgOBNpAyImCmd+8WBgOjABGBLJa0k0JwAUAhuB1a4CR1EkLqKqYJz5xSnAHGAWMFDNc0timt3ASuAVV4GjRq2TqiJO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"/>
+                                        <text class="text-black" fill="#FFF" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="24"
+                                              font-weight="700"
+                                              id="CamDigiKey" transform="translate(82 126)">
+                                            <tspan x="0" y="0">CamDigiKey</tspan>
+                                        </text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -23,7 +23,7 @@
   <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
-    
+
 3. Add CamDigiKey Dependency in **pom.xml**
 
 ```properties
@@ -48,12 +48,12 @@ camdigikey.client-trust-store-file-password = <trust_password>
 
 4. Use `@Autowired` annotation of class `CamDigiKeyClient`
 
-    The client Java library provides methods:
+   The client Java library provides methods:
     1.	`validateJwt(String jwt) : HashMap<String, Object>`
     2.	`getOrganizationAccessToken() : HashMap<String, Object>`
-    3.	`getLoginToken() : HashMap<String, Object>` 
-    4.	`getUserAccessToken(String authToken) : HashMap<String, Object>` 
-    5.	`refreshUserAccessToken(String accessToken) : HashMap<String, Object>` 
+    3.	`getLoginToken() : HashMap<String, Object>`
+    4.	`getUserAccessToken(String authToken) : HashMap<String, Object>`
+    5.	`refreshUserAccessToken(String accessToken) : HashMap<String, Object>`
     6.	`logoutAccessToken(String accessToken) : HashMap<String, Object>`
     7.	`lookupUserProfile(String accessToken, String personal_code) : HashMap<String, Object>`
     8.	`verifyUserProfile(String accessToken : HashMap<String, Object>`
@@ -61,7 +61,7 @@ camdigikey.client-trust-store-file-password = <trust_password>
 
 5. Add a simple Login Page with CamDigiKey Button to request LoginToken from CamDigiKey Client Server Member and Redirect to CamDigiKey Authorization Server
 
-    5.1. Add Login with CamDigiKey Button to request to **/loginToken** from CamDigiKey Client Server Member
+   5.1. Add Login with CamDigiKey Button to request to **/loginToken** from CamDigiKey Client Server Member
 
     ```html
     <form action="/loginToken" method="POST">
@@ -75,8 +75,8 @@ camdigikey.client-trust-store-file-password = <trust_password>
         </div>
     </form>
     ```
-    
-    5.2. Create **/loginToken** Endpoint in CamDigiKey Client Server Member to handle the request from Login Page
+
+   5.2. Create **/loginToken** Endpoint in CamDigiKey Client Server Member to handle the request from Login Page
 
     * Sample Model for LoginTokenResponse, AccessTokenResponse, UserInfoResponse
     ```java
@@ -155,7 +155,7 @@ camdigikey.client-trust-store-file-password = <trust_password>
     return "redirect:" + loginTokenResponse.getLoginUrl();
     ```
 
-    5.3. Create a Success Callback URL Endpoint: **/callback?authToken={AUTH_TOKEN_URL_ENCODED_STRING}**
+   5.3. Create a Success Callback URL Endpoint: **/callback?authToken={AUTH_TOKEN_URL_ENCODED_STRING}**
 
     ```java
     // in Java Spring we can use @RequestParam("authToken") String authToken in the controller method
@@ -174,7 +174,7 @@ camdigikey.client-trust-store-file-password = <trust_password>
     
     ```
 
-    5.4. Create a Fallback Callback URL Endpoint: **/fallback?errorCode={ERROR_CODE}&errorMessage={ERROR_MESSAGE}**
+   5.4. Create a Fallback Callback URL Endpoint: **/fallback?errorCode={ERROR_CODE}&errorMessage={ERROR_MESSAGE}**
     ```java
     // in Java Spring we can use @RequestParam("errorCode") String errorCode, @RequestParam("errorMessage") String errorMessage in the controller method
 
@@ -183,12 +183,12 @@ camdigikey.client-trust-store-file-password = <trust_password>
     ```
 
 ---
-    
+
 # CamDigiKey Client App
 
 CamDigiKey client application is a Java application that build on top of CamDigiKey client library. The client application provides API access (REST) without any authentication. For security concern, please install the client application for local system access only. Please follow the steps to config app credential:
 
-* Edit `src/main/resources/application.properties`: 
+* Edit `src/main/resources/application.properties`:
 
 ```
 # add client credential properties

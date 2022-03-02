@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Log In | CamDigiKey</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Fontawesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-no-repeat bg-cover bg-center">
+    <!-- Tailwind CSS v2.0+ -->
+    <div class="bg-green-600">
+        <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between flex-wrap">
+                <div class="w-0 flex-1 flex items-center">
+                    <span class="flex p-2 rounded-lg" style="background: #2e5ae1">
+                      <!-- Heroicon name: outline/speakerphone -->
+                      <svg aria-hidden="true" class="h-6 w-6 text-white" fill="none" stroke="currentColor"
+                           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                              stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2"/>
+                      </svg>
+                    </span>
+                    <p class="ml-3 font-medium text-white truncate">
+                      <span class="md:hidden">
+                        Sample Client1 Application (DEMO)
+                      </span>
+                                    <span class="hidden md:inline">
+                        Big news! We're excited to announce an Online Sample Client1 Application (DEMO) is using CamDigiKey Authentication Service
+                      </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="max-w-7xl mx-auto py-5 px-3 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-black mr-6">
+            <h1 class="text-2xl font-bold">Online Sample Client1 Application (DEMO) Platform</h1>
+        </div>
+
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="text-sm lg:flex-grow">
+
+            </div>
+        </div>
+    </nav>
+    <!-- component -->
+
+    <div class="flex justify-center">
+        <div class="bg-white flex justify-center items-center px-3">
+            <div class="w-1/2">
+                <div class="bg-white flex space-x-2 p-5 rounded-full justify-center items-center" id="loading"
+                     style="display: none;">
+                    <div class="bg-blue-600 p-2  w-3 h-3 rounded-full animate-bounce blue-circle"
+                         style="background: #2e5ae1"></div>
+                    <div class="bg-green-600 p-2 w-3 h-3 rounded-full animate-bounce green-circle"></div>
+                    <div class="bg-red-600 p-2  w-3 h-3 rounded-full animate-bounce red-circle"></div>
+                </div>
+                <form action="/requestLogin" method="POST">
+                    <div class="text-center mt-2">
+                        <h1 class="text-2xl font-bold">Auth Token From CamDigiKey Authorization Server:</h1>
+                    </div>
+                    <div class="mt-2 py-2">
+                        <div class="flex items-center justify-center flex-shrink-0 text-black mr-6 px-2">
+                            <p th:text="${authToken}" id="authToken"></p>
+                        </div>
+                    </div>
+                </form>
+                <button id="requestAccessToken" class="w-full mt-4 mb-3 bg-blue-700 hover:bg-blue-600 text-white py-2 rounded-md transition duration-100">
+                    Request To Get AccessToken By AuthToken
+                </button>
+
+                <div class="mt-2 py-2">
+                    <div class="flex items-center justify-center flex-shrink-0 text-black mr-6 px-2">
+                        <p id="accessToken"></p>
+                    </div>
+                </div>
+
+                <button id="requestUserInfo" class="w-full mt-4 mb-3 bg-blue-700 hover:bg-blue-600 text-white py-2 rounded-md transition duration-100">
+                    Request To Get UserInfo By AccessToken
+                </button>
+
+                <div class="mt-2 py-2">
+                    <div class="flex items-center justify-center flex-shrink-0 text-black mr-6 px-2">
+                        <p id="userInfo">
+                        </p>
+                    </div>
+                </div>
+
+                <button id="requestLogout" class="w-full mt-4 mb-3 bg-blue-700 hover:bg-blue-600 text-white py-2 rounded-md transition duration-100">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function() {
+        $("#requestAccessToken").click(function() {
+            var data = JSON.stringify(
+                {
+                    "authToken": $("#authToken").text()
+                }
+            );
+            var config = {
+                method: 'post',
+                url: '/accessToken',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: data
+            };
+            axios(config)
+                .then(function (response) {
+                    console.log(response.data);
+                    var responseData = JSON.parse(JSON.stringify(response.data));
+                    $("#accessToken").text(responseData.data.accessToken)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+
+        $("#requestUserInfo").click(function() {
+            var config = {
+                method: 'post',
+                url: '/userInfo',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": "Bearer " + $("#accessToken").text()
+                }
+            };
+            axios(config)
+                .then(function (response) {
+                    console.log(response.data);
+                    $("#userInfo").text(JSON.stringify(response.data, null, '\t'))
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+
+        $("#requestLogout").click(function() {
+            var config = {
+                method: 'post',
+                url: '/logout',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": "Bearer " + $("#accessToken").text()
+                }
+            };
+            axios(config)
+                .then(function (response) {
+                    console.log(response.data);
+                    var responseData = JSON.parse(JSON.stringify(response.data));
+                    if(responseData.data.status === "Inactive") {
+                        window.location.href = "/login";
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+    });
+</script>
+</body>
+</html>
