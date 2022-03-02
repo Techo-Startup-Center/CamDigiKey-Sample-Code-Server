@@ -15,7 +15,7 @@
 <dependency>
   <groupId>kh.gov.camdx.camdigikey</groupId>
   <artifactId>client</artifactId>
-  <version>1.5</version>
+  <version>2.0.0</version>
   <scope>compile</scope>
 </dependency>
 <dependency>
